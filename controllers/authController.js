@@ -5,6 +5,13 @@ const User = require("../models/User");
 const authMiddleware = require("../middleware/authMiddleware");
 const router = express.Router();
 const { check, validationResult } = require("express-validator");
+const rateLimit = require("express-rate-limit");
+
+const loginLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutos
+  max: 5, // Máximo 5 intentos
+  message: "Demasiados intentos de inicio de sesión. Intenta de nuevo más tarde."
+});
 
 // Registro
 router.post("/register",
@@ -34,7 +41,7 @@ router.post("/register",
 });
 
 // Inicio de sesión
-router.post("/login", async (req, res) => {
+router.post("/login", loginLimiter, async (req, res) => {
   try {
     const { email, password } = req.body;
     const user = await User.findOne({ email });

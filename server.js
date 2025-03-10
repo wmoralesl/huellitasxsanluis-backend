@@ -1,12 +1,16 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const helmet = require("helmet");
+
 require("dotenv").config();
 const routes = require("./routes"); // Importa el router desde routes/index.js
 
 const app = express();
+
 app.use(express.json());
-app.use(cors());
+app.use(cors()); // Permitir solicitudes de otros dominios
+app.use(helmet()); // Protección contra ataques comunes
 
 mongoose
   .connect(process.env.MONGO_URI)
