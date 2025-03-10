@@ -4,9 +4,20 @@ const jwt = require("jsonwebtoken");
 const User = require("../models/User");
 const authMiddleware = require("../middleware/authMiddleware");
 const router = express.Router();
+const { check, validationResult } = require("express-validator");
 
 // Registro
-router.post("/register", async (req, res) => {
+router.post("/register",
+  [
+    check("email").isEmail().withMessage("Debe ser un email válido"),
+    check("password").isLength({ min: 6 }).withMessage("La contraseña debe tener al menos 6 caracteres"),
+  ],
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
   try {
     const { username, email, password } = req.body;
     const existingUser = await User.findOne({ email });
