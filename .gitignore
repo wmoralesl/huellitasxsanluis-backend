@@ -12,6 +12,7 @@
 /perf.data.old
 /massif.out.*
 venv
+.env
 
 *~
 *.test_iwyu.h
