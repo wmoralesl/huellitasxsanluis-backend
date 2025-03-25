@@ -70,4 +70,12 @@ router.get("/me", authMiddleware, async (req, res) => {
   }
 });
 
+router.post("/logout", authMiddleware, async (req, res) => {
+    // Opción 1: Si usas JWT en el frontend (eliminar el token del cliente)
+    res.status(200).json({ message: "Sesión cerrada exitosamente" });
+
+    // Opción 2: Si usas cookies (limpiar la cookie)
+    // res.clearCookie('token').json({ message: "Sesión cerrada exitosamente" });
+})
+
 module.exports = router;
