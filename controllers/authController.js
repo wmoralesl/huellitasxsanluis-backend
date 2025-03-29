@@ -26,12 +26,18 @@ router.post("/register",
     }
 
   try {
-    const { username, email, password } = req.body;
+    const { username, email, password, role } = req.body;
+    // Verificar si el correo del usuario existe
     const existingUser = await User.findOne({ email });
-    if (existingUser) return res.status(400).json({ message: "El usuario ya existe" });
-
+    if (existingUser) return res.status(400).json({ message: "Este correo ya está registrado" });
+    // Encriptar la contraseña
     const hashedPassword = await bcrypt.hash(password, 10);
-    const newUser = new User({ username, email, password: hashedPassword });
+    const newUser = new User({ 
+      username,
+      email, 
+      password: hashedPassword, 
+      role 
+    });
 
     await newUser.save();
     res.status(201).json({ message: "Usuario registrado con éxito" });
