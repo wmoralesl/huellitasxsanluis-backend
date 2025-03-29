@@ -4,6 +4,7 @@ const cors = require("cors");
 const helmet = require("helmet");
 const authRoutes = require('./routes/authRoutes');
 const animalRoutes = require('./routes/animalRoutes');
+const usersRoutes = require('./routes/usersRoutes');
 
 require("dotenv").config();
 
@@ -16,7 +17,8 @@ app.use(cors()); // Permitir solicitudes de otros dominios
 app.use(helmet()); // Protección contra ataques comunes
 
 
-  app.use('', authRoutes);
+  app.use('/api/auth', authRoutes);
+  app.use('/api/users', usersRoutes);
   app.use('/api/animals', animalRoutes);
 
 const PORT = process.env.PORT || 5000;

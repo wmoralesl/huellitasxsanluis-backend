@@ -2,8 +2,8 @@ const express = require("express");
 const router = express.Router()
 
 //Importar rutas individuales
-const authRoutes = require("../controllers/authController");
+const usersRoutes  = require("../controllers/usersController");
 
-router.use("", authRoutes);
+router.use("", usersRoutes);
 
 module.exports = router;
