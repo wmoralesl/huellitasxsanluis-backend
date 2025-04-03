@@ -1,4 +1,4 @@
-# huellitasxsanluis-backend
+  # Backend de Huellitas por San Luis
 Backend para la aplicacion web de Huellitas por San Luis; una organización dedicada a ayudar a perros y gatos en situación de calle
 
 ## Organizacion de Endpoints REST
