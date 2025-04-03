@@ -20,11 +20,11 @@ Backend para la aplicacion web de Huellitas por San Luis; una organización dedi
 |`PUT`|`/api/users/{user_id}`| Actualiza un usuario |
 |`DELETE`|`/api/users/{user_id}`| Elimina(is_active=False) un usuario (admin)|
 
-### 3. Usuarios (/animals)
+### 3. Mascotas (/animals)
 |Método|Endpoint|Descripción|
 |------|--------|-----------|
 |`GET`|`/api/animals`| Obtiene listado de las mascotas |
-|`GET`|`/api/animals/{user_id}`| Obtener detalle de una mascota|
+|`GET`|`/api/animals/{animal_id}`| Obtener detalle de una mascota|
 |`POST`|`/api/animals/`| Registra una nueva mascota (autenticado) |
-|`PUT`|`/api/animals/{user_id}`| Actualiza una mascota |
-|`DELETE`|`/api/animals/{user_id}`| Elimina(is_active=False) una mascota (admin)|
+|`PUT`|`/api/animals/{animal_id}`| Actualiza una mascota |
+|`DELETE`|`/api/animals/{animal_id}`| Elimina(is_active=False) una mascota (admin)|
