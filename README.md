@@ -1,10 +1,15 @@
   # Backend de Huellitas por San Luis
 Backend para la aplicacion web de Huellitas por San Luis; una organización dedicada a ayudar a perros y gatos en situación de calle
 
+## Pasos para inciar el proyecto
+
+1. Clonar el repositorio
+2. Instalar las dependencias con `npm install`
+3. Iniciar el servidor con `npm run start`
+
 ## Organizacion de Endpoints REST
 
-
-### 1. Autenticación (/Auth)
+### 1. Autenticación (/auth)
 |Método|Endpoint|Descripción|
 |------|--------|-----------|
 |`POST`|`/api/auth/register`| Registra un nuevo usuario |
